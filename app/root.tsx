@@ -48,7 +48,11 @@ export const meta: V2_MetaFunction = ({ data }) => {
     {
       keywords:
         'ScriptCat,UserScript,Tampermonkey,Greasemonkey,Violentmonkey,用户脚本,脚本猫,油猴,油猴脚本',
-    },
+    }, {
+      name: "viewport",
+      content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+
+    }
   ];
 };
 
@@ -212,8 +216,8 @@ export default function App() {
       typeof window == 'undefined'
         ? process.env.APP_API_PROXY
         : config.ENV.NODE_ENV == 'development'
-        ? '/api/v2'
-        : config.ENV.APP_API_URL,
+          ? '/api/v2'
+          : config.ENV.APP_API_URL,
     timeout: 10000,
     validateStatus: (status: number) => status < 500,
   });
@@ -273,6 +277,12 @@ export default function App() {
           <ConfigProvider
             theme={{
               algorithm: dark ? theme.darkAlgorithm : theme.defaultAlgorithm,
+              components: {
+                Layout: {
+                  headerHeight: 48,
+                  headerPadding: 0
+                },
+              },
             }}
           >
             <StyleProvider
