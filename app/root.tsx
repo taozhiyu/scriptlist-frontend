@@ -248,10 +248,10 @@ export default function App() {
         <script
           dangerouslySetInnerHTML={{
             __html: `  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
 
-  gtag('config', 'G-N2X6MNVRL3');`,
+gtag('config', 'G-N2X6MNVRL3');`,
           }}
         />
         <script
@@ -279,10 +279,16 @@ export default function App() {
               algorithm: dark ? theme.darkAlgorithm : theme.defaultAlgorithm,
               components: {
                 Layout: {
-                  headerHeight: 48,
-                  headerPadding: 0
+                  headerPadding: 0,
+                  headerHeight: 36,
+                  footerPadding: 24
                 },
+                Menu: {
+                  itemPaddingInline: 5,
+                  iconMarginInlineEnd: 2
+                }
               },
+              cssVar: true
             }}
           >
             <StyleProvider
